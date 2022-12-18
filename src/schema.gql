@@ -1,0 +1,733 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Consultation {
+  Hour_consultation: DateTime!
+  doctor_id: String!
+  id: String!
+  patient_id: String!
+}
+
+type ConsultationAggregateGroupBy {
+  Hour_consultation: DateTime
+  doctor_id: String
+  id: String
+  patient_id: String
+}
+
+type ConsultationConnection {
+  """Array of nodes."""
+  nodes: [Consultation!]!
+
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+type ConsultationCountAggregate {
+  Hour_consultation: Int
+  doctor_id: Int
+  id: Int
+  patient_id: Int
+}
+
+input ConsultationDeleteFilter {
+  Hour_consultation: DateFieldComparison
+  and: [ConsultationDeleteFilter!]
+  doctor_id: StringFieldComparison
+  id: StringFieldComparison
+  or: [ConsultationDeleteFilter!]
+  patient_id: StringFieldComparison
+}
+
+type ConsultationDeleteResponse {
+  Hour_consultation: DateTime
+  doctor_id: String
+  id: String
+  patient_id: String
+}
+
+input ConsultationFilter {
+  Hour_consultation: DateFieldComparison
+  and: [ConsultationFilter!]
+  doctor_id: StringFieldComparison
+  id: StringFieldComparison
+  or: [ConsultationFilter!]
+  patient_id: StringFieldComparison
+}
+
+type ConsultationMaxAggregate {
+  Hour_consultation: DateTime
+  doctor_id: String
+  id: String
+  patient_id: String
+}
+
+type ConsultationMinAggregate {
+  Hour_consultation: DateTime
+  doctor_id: String
+  id: String
+  patient_id: String
+}
+
+input ConsultationSort {
+  direction: SortDirection!
+  field: ConsultationSortFields!
+  nulls: SortNulls
+}
+
+enum ConsultationSortFields {
+  Hour_consultation
+  doctor_id
+  id
+  patient_id
+}
+
+input ConsultationUpdateFilter {
+  Hour_consultation: DateFieldComparison
+  and: [ConsultationUpdateFilter!]
+  doctor_id: StringFieldComparison
+  id: StringFieldComparison
+  or: [ConsultationUpdateFilter!]
+  patient_id: StringFieldComparison
+}
+
+input CreateConsultationInput {
+  Hour_consultation: DateTime!
+  doctor_id: String!
+  patient_id: String!
+}
+
+input CreateDoctorInput {
+  email: String!
+  name: String!
+  password: String!
+}
+
+input CreateIllnessInput {
+  name: String!
+}
+
+input CreateManyConsultationsInput {
+  """Array of records to create"""
+  consultations: [CreateConsultationInput!]!
+}
+
+input CreateManyDoctorsInput {
+  """Array of records to create"""
+  doctors: [CreateDoctorInput!]!
+}
+
+input CreateManyIllnessesInput {
+  """Array of records to create"""
+  illnesses: [CreateIllnessInput!]!
+}
+
+input CreateManyPatientsInput {
+  """Array of records to create"""
+  patients: [CreatePatientInput!]!
+}
+
+input CreateOneConsultationInput {
+  """The record to create"""
+  consultation: CreateConsultationInput!
+}
+
+input CreateOneDoctorInput {
+  """The record to create"""
+  doctor: CreateDoctorInput!
+}
+
+input CreateOneIllnessInput {
+  """The record to create"""
+  illness: CreateIllnessInput!
+}
+
+input CreateOnePatientInput {
+  """The record to create"""
+  patient: CreatePatientInput!
+}
+
+input CreatePatientInput {
+  email: String!
+  name: String!
+  password: String!
+}
+
+input DateFieldComparison {
+  between: DateFieldComparisonBetween
+  eq: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  is: Boolean
+  isNot: Boolean
+  lt: DateTime
+  lte: DateTime
+  neq: DateTime
+  notBetween: DateFieldComparisonBetween
+  notIn: [DateTime!]
+}
+
+input DateFieldComparisonBetween {
+  lower: DateTime!
+  upper: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DeleteManyConsultationsInput {
+  """Filter to find records to delete"""
+  filter: ConsultationDeleteFilter!
+}
+
+input DeleteManyDoctorsInput {
+  """Filter to find records to delete"""
+  filter: DoctorDeleteFilter!
+}
+
+input DeleteManyIllnessesInput {
+  """Filter to find records to delete"""
+  filter: IllnessDeleteFilter!
+}
+
+input DeleteManyPatientsInput {
+  """Filter to find records to delete"""
+  filter: PatientDeleteFilter!
+}
+
+type DeleteManyResponse {
+  """The number of records deleted."""
+  deletedCount: Int!
+}
+
+input DeleteOneConsultationInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+input DeleteOneDoctorInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+input DeleteOneIllnessInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+input DeleteOnePatientInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+type Doctor {
+  createdAt: DateTime!
+  email: String!
+  id: String!
+  name: String!
+  updatedAt: DateTime!
+}
+
+type DoctorAggregateGroupBy {
+  createdAt: DateTime
+  email: String
+  id: String
+  name: String
+  updatedAt: DateTime
+}
+
+type DoctorConnection {
+  """Array of nodes."""
+  nodes: [Doctor!]!
+
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+type DoctorCountAggregate {
+  createdAt: Int
+  email: Int
+  id: Int
+  name: Int
+  updatedAt: Int
+}
+
+input DoctorDeleteFilter {
+  and: [DoctorDeleteFilter!]
+  createdAt: DateFieldComparison
+  email: StringFieldComparison
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [DoctorDeleteFilter!]
+  updatedAt: DateFieldComparison
+}
+
+type DoctorDeleteResponse {
+  createdAt: DateTime
+  email: String
+  id: String
+  name: String
+  updatedAt: DateTime
+}
+
+input DoctorFilter {
+  and: [DoctorFilter!]
+  createdAt: DateFieldComparison
+  email: StringFieldComparison
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [DoctorFilter!]
+  updatedAt: DateFieldComparison
+}
+
+type DoctorMaxAggregate {
+  createdAt: DateTime
+  email: String
+  id: String
+  name: String
+  updatedAt: DateTime
+}
+
+type DoctorMinAggregate {
+  createdAt: DateTime
+  email: String
+  id: String
+  name: String
+  updatedAt: DateTime
+}
+
+input DoctorSort {
+  direction: SortDirection!
+  field: DoctorSortFields!
+  nulls: SortNulls
+}
+
+enum DoctorSortFields {
+  createdAt
+  email
+  id
+  name
+  updatedAt
+}
+
+input DoctorUpdateFilter {
+  and: [DoctorUpdateFilter!]
+  createdAt: DateFieldComparison
+  email: StringFieldComparison
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [DoctorUpdateFilter!]
+  updatedAt: DateFieldComparison
+}
+
+type Illness {
+  id: String!
+  name: String!
+}
+
+type IllnessAggregateGroupBy {
+  id: String
+  name: String
+}
+
+type IllnessConnection {
+  """Array of nodes."""
+  nodes: [Illness!]!
+
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+type IllnessCountAggregate {
+  id: Int
+  name: Int
+}
+
+input IllnessDeleteFilter {
+  and: [IllnessDeleteFilter!]
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [IllnessDeleteFilter!]
+}
+
+type IllnessDeleteResponse {
+  id: String
+  name: String
+}
+
+input IllnessFilter {
+  and: [IllnessFilter!]
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [IllnessFilter!]
+}
+
+type IllnessMaxAggregate {
+  id: String
+  name: String
+}
+
+type IllnessMinAggregate {
+  id: String
+  name: String
+}
+
+input IllnessSort {
+  direction: SortDirection!
+  field: IllnessSortFields!
+  nulls: SortNulls
+}
+
+enum IllnessSortFields {
+  id
+  name
+}
+
+input IllnessUpdateFilter {
+  and: [IllnessUpdateFilter!]
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [IllnessUpdateFilter!]
+}
+
+type Mutation {
+  createManyConsultations(input: CreateManyConsultationsInput!): [Consultation!]!
+  createManyDoctors(input: CreateManyDoctorsInput!): [Doctor!]!
+  createManyIllnesses(input: CreateManyIllnessesInput!): [Illness!]!
+  createManyPatients(input: CreateManyPatientsInput!): [Patient!]!
+  createOneConsultation(input: CreateOneConsultationInput!): Consultation!
+  createOneDoctor(input: CreateOneDoctorInput!): Doctor!
+  createOneIllness(input: CreateOneIllnessInput!): Illness!
+  createOnePatient(input: CreateOnePatientInput!): Patient!
+  deleteManyConsultations(input: DeleteManyConsultationsInput!): DeleteManyResponse!
+  deleteManyDoctors(input: DeleteManyDoctorsInput!): DeleteManyResponse!
+  deleteManyIllnesses(input: DeleteManyIllnessesInput!): DeleteManyResponse!
+  deleteManyPatients(input: DeleteManyPatientsInput!): DeleteManyResponse!
+  deleteOneConsultation(input: DeleteOneConsultationInput!): ConsultationDeleteResponse!
+  deleteOneDoctor(input: DeleteOneDoctorInput!): DoctorDeleteResponse!
+  deleteOneIllness(input: DeleteOneIllnessInput!): IllnessDeleteResponse!
+  deleteOnePatient(input: DeleteOnePatientInput!): PatientDeleteResponse!
+  updateManyConsultations(input: UpdateManyConsultationsInput!): UpdateManyResponse!
+  updateManyDoctors(input: UpdateManyDoctorsInput!): UpdateManyResponse!
+  updateManyIllnesses(input: UpdateManyIllnessesInput!): UpdateManyResponse!
+  updateManyPatients(input: UpdateManyPatientsInput!): UpdateManyResponse!
+  updateOneConsultation(input: UpdateOneConsultationInput!): Consultation!
+  updateOneDoctor(input: UpdateOneDoctorInput!): Doctor!
+  updateOneIllness(input: UpdateOneIllnessInput!): Illness!
+  updateOnePatient(input: UpdateOnePatientInput!): Patient!
+}
+
+type OffsetPageInfo {
+  """true if paging forward and there are more records."""
+  hasNextPage: Boolean
+
+  """true if paging backwards and there are more records."""
+  hasPreviousPage: Boolean
+}
+
+input OffsetPaging {
+  """Limit the number of records returned"""
+  limit: Int
+
+  """Offset to start returning records from"""
+  offset: Int
+}
+
+type Patient {
+  createdAt: DateTime!
+  email: String!
+  id: String!
+  name: String!
+  updatedAt: DateTime!
+}
+
+type PatientAggregateGroupBy {
+  createdAt: DateTime
+  email: String
+  id: String
+  name: String
+  updatedAt: DateTime
+}
+
+type PatientConnection {
+  """Array of nodes."""
+  nodes: [Patient!]!
+
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+type PatientCountAggregate {
+  createdAt: Int
+  email: Int
+  id: Int
+  name: Int
+  updatedAt: Int
+}
+
+input PatientDeleteFilter {
+  and: [PatientDeleteFilter!]
+  createdAt: DateFieldComparison
+  email: StringFieldComparison
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [PatientDeleteFilter!]
+  updatedAt: DateFieldComparison
+}
+
+type PatientDeleteResponse {
+  createdAt: DateTime
+  email: String
+  id: String
+  name: String
+  updatedAt: DateTime
+}
+
+input PatientFilter {
+  and: [PatientFilter!]
+  createdAt: DateFieldComparison
+  email: StringFieldComparison
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [PatientFilter!]
+  updatedAt: DateFieldComparison
+}
+
+type PatientMaxAggregate {
+  createdAt: DateTime
+  email: String
+  id: String
+  name: String
+  updatedAt: DateTime
+}
+
+type PatientMinAggregate {
+  createdAt: DateTime
+  email: String
+  id: String
+  name: String
+  updatedAt: DateTime
+}
+
+input PatientSort {
+  direction: SortDirection!
+  field: PatientSortFields!
+  nulls: SortNulls
+}
+
+enum PatientSortFields {
+  createdAt
+  email
+  id
+  name
+  updatedAt
+}
+
+input PatientUpdateFilter {
+  and: [PatientUpdateFilter!]
+  createdAt: DateFieldComparison
+  email: StringFieldComparison
+  id: StringFieldComparison
+  name: StringFieldComparison
+  or: [PatientUpdateFilter!]
+  updatedAt: DateFieldComparison
+}
+
+type Query {
+  consultation(
+    """The id of the record to find."""
+    id: ID!
+  ): Consultation
+  consultations(
+    """Specify to filter the records returned."""
+    filter: ConsultationFilter! = {}
+
+    """Limit or page results."""
+    paging: OffsetPaging! = {limit: 10}
+
+    """Specify to sort results."""
+    sorting: [ConsultationSort!]! = []
+  ): ConsultationConnection!
+  doctor(
+    """The id of the record to find."""
+    id: ID!
+  ): Doctor
+  doctors(
+    """Specify to filter the records returned."""
+    filter: DoctorFilter! = {}
+
+    """Limit or page results."""
+    paging: OffsetPaging! = {limit: 10}
+
+    """Specify to sort results."""
+    sorting: [DoctorSort!]! = []
+  ): DoctorConnection!
+  illness(
+    """The id of the record to find."""
+    id: ID!
+  ): Illness
+  illnesses(
+    """Specify to filter the records returned."""
+    filter: IllnessFilter! = {}
+
+    """Limit or page results."""
+    paging: OffsetPaging! = {limit: 10}
+
+    """Specify to sort results."""
+    sorting: [IllnessSort!]! = []
+  ): IllnessConnection!
+  patient(
+    """The id of the record to find."""
+    id: ID!
+  ): Patient
+  patients(
+    """Specify to filter the records returned."""
+    filter: PatientFilter! = {}
+
+    """Limit or page results."""
+    paging: OffsetPaging! = {limit: 10}
+
+    """Specify to sort results."""
+    sorting: [PatientSort!]! = []
+  ): PatientConnection!
+}
+
+"""Sort Directions"""
+enum SortDirection {
+  ASC
+  DESC
+}
+
+"""Sort Nulls Options"""
+enum SortNulls {
+  NULLS_FIRST
+  NULLS_LAST
+}
+
+input StringFieldComparison {
+  eq: String
+  gt: String
+  gte: String
+  iLike: String
+  in: [String!]
+  is: Boolean
+  isNot: Boolean
+  like: String
+  lt: String
+  lte: String
+  neq: String
+  notILike: String
+  notIn: [String!]
+  notLike: String
+}
+
+input UpdateConsultationInput {
+  Hour_consultation: DateTime
+  doctor_id: String
+  id: ID
+  patient_id: String
+}
+
+input UpdateDoctorInput {
+  email: String
+  id: ID
+  name: String
+  password: String
+}
+
+input UpdateIllnessInput {
+  id: ID
+  name: String
+}
+
+input UpdateManyConsultationsInput {
+  """Filter used to find fields to update"""
+  filter: ConsultationUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: UpdateConsultationInput!
+}
+
+input UpdateManyDoctorsInput {
+  """Filter used to find fields to update"""
+  filter: DoctorUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: UpdateDoctorInput!
+}
+
+input UpdateManyIllnessesInput {
+  """Filter used to find fields to update"""
+  filter: IllnessUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: UpdateIllnessInput!
+}
+
+input UpdateManyPatientsInput {
+  """Filter used to find fields to update"""
+  filter: PatientUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: UpdatePatientInput!
+}
+
+type UpdateManyResponse {
+  """The number of records updated."""
+  updatedCount: Int!
+}
+
+input UpdateOneConsultationInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdateConsultationInput!
+}
+
+input UpdateOneDoctorInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdateDoctorInput!
+}
+
+input UpdateOneIllnessInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdateIllnessInput!
+}
+
+input UpdateOnePatientInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdatePatientInput!
+}
+
+input UpdatePatientInput {
+  email: String
+  id: ID
+  name: String
+  password: String
+}
