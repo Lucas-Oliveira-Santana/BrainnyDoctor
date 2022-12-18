@@ -1,7 +1,9 @@
+import { Consultation } from '../../consultation/entities/consultation.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -25,4 +27,7 @@ export class Doctor {
 
   @CreateDateColumn()
   createdAt: Date;
+
+  @OneToMany(() => Consultation, (consultation) => consultation.DoctorId)
+  consultation: Consultation[];
 }

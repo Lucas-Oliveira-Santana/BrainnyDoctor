@@ -1,10 +1,14 @@
+import { Illness } from '../../illness/entities/illness.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Consultation } from '../../consultation/entities/consultation.entity';
 
 @Entity()
 export class Patient {
@@ -25,4 +29,10 @@ export class Patient {
 
   @CreateDateColumn()
   createdAt: Date;
+
+  @ManyToOne(() => Illness)
+  IllnessId: string;
+
+  @OneToMany(() => Consultation, (consultation) => consultation.PatientId)
+  consultation: Consultation[];
 }

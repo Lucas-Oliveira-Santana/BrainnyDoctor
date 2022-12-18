@@ -1,7 +1,14 @@
-import { FilterableField } from '@nestjs-query/query-graphql';
+import {
+  FilterableField,
+  FilterableOffsetConnection,
+} from '@nestjs-query/query-graphql';
 import { ObjectType } from '@nestjs/graphql';
+import { ConsultationDTO } from '../../consultation/dto/consultation.dto';
 
 @ObjectType('Doctor')
+@FilterableOffsetConnection('consultations', () => ConsultationDTO, {
+  nullable: true,
+})
 export class DoctorDTO {
   @FilterableField()
   name: string;

@@ -10,4 +10,7 @@ export class CreatePatientInput {
 
   @Field()
   password: string;
+
+  @Field()
+  illnessId?: string;
 }

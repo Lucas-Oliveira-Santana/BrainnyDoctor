@@ -5,7 +5,7 @@ import {
 import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { Module } from '@nestjs/common';
 import { CreateIllnessInput } from './dto/create-illness.input';
-import { IllnessDTO } from './dto/ilness.dto';
+import { IllnessDTO } from '../illness/dto/illness.dto';
 import { UpdateIllnessInput } from './dto/update-illness.input';
 import { Illness } from './entities/illness.entity';
 

@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Patient } from '../../patients/entities/patient.entity';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Doctor } from '../../doctors/entities/doctor.entity';
 
 @Entity()
 export class Consultation {
@@ -13,4 +15,10 @@ export class Consultation {
 
   @Column()
   Hour_consultation: Date;
+
+  @ManyToOne(() => Patient)
+  PatientId: string;
+
+  @ManyToOne(() => Doctor)
+  DoctorId: string;
 }
