@@ -27,19 +27,19 @@ input AddPatientsToIllnessInput {
 }
 
 type Consultation {
-  Hour_consultation: DateTime!
-  doctor: Doctor!
-  doctor_id: String!
+  doctorId: String!
+  doctors: Doctor!
+  hour_consultation: DateTime!
   id: String
-  patient: Patient!
-  patient_id: String!
+  patientId: String!
+  patients: Patient!
 }
 
 type ConsultationAggregateGroupBy {
-  Hour_consultation: DateTime
-  doctor_id: String
+  doctorId: String
+  hour_consultation: DateTime
   id: String
-  patient_id: String
+  patientId: String
 }
 
 type ConsultationConnection {
@@ -54,37 +54,37 @@ type ConsultationConnection {
 }
 
 type ConsultationCountAggregate {
-  Hour_consultation: Int
-  doctor_id: Int
+  doctorId: Int
+  hour_consultation: Int
   id: Int
-  patient_id: Int
+  patientId: Int
 }
 
 input ConsultationDeleteFilter {
-  Hour_consultation: DateFieldComparison
   and: [ConsultationDeleteFilter!]
-  doctor_id: StringFieldComparison
+  doctorId: StringFieldComparison
+  hour_consultation: DateFieldComparison
   id: StringFieldComparison
   or: [ConsultationDeleteFilter!]
-  patient_id: StringFieldComparison
+  patientId: StringFieldComparison
 }
 
 type ConsultationDeleteResponse {
-  Hour_consultation: DateTime
-  doctor_id: String
+  doctorId: String
+  hour_consultation: DateTime
   id: String
-  patient_id: String
+  patientId: String
 }
 
 input ConsultationFilter {
-  Hour_consultation: DateFieldComparison
   and: [ConsultationFilter!]
-  doctor: ConsultationFilterDoctorFilter
-  doctor_id: StringFieldComparison
+  doctorId: StringFieldComparison
+  doctors: ConsultationFilterDoctorFilter
+  hour_consultation: DateFieldComparison
   id: StringFieldComparison
   or: [ConsultationFilter!]
-  patient: ConsultationFilterPatientFilter
-  patient_id: StringFieldComparison
+  patientId: StringFieldComparison
+  patients: ConsultationFilterPatientFilter
 }
 
 input ConsultationFilterDoctorFilter {
@@ -107,17 +107,17 @@ input ConsultationFilterPatientFilter {
 }
 
 type ConsultationMaxAggregate {
-  Hour_consultation: DateTime
-  doctor_id: String
+  doctorId: String
+  hour_consultation: DateTime
   id: String
-  patient_id: String
+  patientId: String
 }
 
 type ConsultationMinAggregate {
-  Hour_consultation: DateTime
-  doctor_id: String
+  doctorId: String
+  hour_consultation: DateTime
   id: String
-  patient_id: String
+  patientId: String
 }
 
 input ConsultationSort {
@@ -127,25 +127,25 @@ input ConsultationSort {
 }
 
 enum ConsultationSortFields {
-  Hour_consultation
-  doctor_id
+  doctorId
+  hour_consultation
   id
-  patient_id
+  patientId
 }
 
 input ConsultationUpdateFilter {
-  Hour_consultation: DateFieldComparison
   and: [ConsultationUpdateFilter!]
-  doctor_id: StringFieldComparison
+  doctorId: StringFieldComparison
+  hour_consultation: DateFieldComparison
   id: StringFieldComparison
   or: [ConsultationUpdateFilter!]
-  patient_id: StringFieldComparison
+  patientId: StringFieldComparison
 }
 
 input CreateConsultationInput {
-  Hour_consultation: DateTime!
-  doctor_id: String!
-  patient_id: String!
+  doctorId: String!
+  hour_consultation: DateTime!
+  patientId: String!
 }
 
 input CreateDoctorInput {
@@ -361,12 +361,12 @@ input DoctorFilter {
 }
 
 input DoctorFilterConsultationFilter {
-  Hour_consultation: DateFieldComparison
   and: [DoctorFilterConsultationFilter!]
-  doctor_id: StringFieldComparison
+  doctorId: StringFieldComparison
+  hour_consultation: DateFieldComparison
   id: StringFieldComparison
   or: [DoctorFilterConsultationFilter!]
-  patient_id: StringFieldComparison
+  patientId: StringFieldComparison
 }
 
 type DoctorMaxAggregate {
@@ -535,15 +535,15 @@ type Mutation {
   deleteOnePatient(input: DeleteOnePatientInput!): PatientDeleteResponse!
   removeConsultationsFromDoctor(input: RemoveConsultationsFromDoctorInput!): Doctor!
   removeConsultationsFromPatient(input: RemoveConsultationsFromPatientInput!): Patient!
-  removeDoctorFromConsultation(input: RemoveDoctorFromConsultationInput!): Consultation!
+  removeDoctorsFromConsultation(input: RemoveDoctorsFromConsultationInput!): Consultation!
   removeIllnessFromPatient(input: RemoveIllnessFromPatientInput!): Patient!
-  removePatientFromConsultation(input: RemovePatientFromConsultationInput!): Consultation!
+  removePatientsFromConsultation(input: RemovePatientsFromConsultationInput!): Consultation!
   removePatientsFromIllness(input: RemovePatientsFromIllnessInput!): Illness!
   setConsultationsOnDoctor(input: SetConsultationsOnDoctorInput!): Doctor!
   setConsultationsOnPatient(input: SetConsultationsOnPatientInput!): Patient!
-  setDoctorOnConsultation(input: SetDoctorOnConsultationInput!): Consultation!
+  setDoctorsOnConsultation(input: SetDoctorsOnConsultationInput!): Consultation!
   setIllnessOnPatient(input: SetIllnessOnPatientInput!): Patient!
-  setPatientOnConsultation(input: SetPatientOnConsultationInput!): Consultation!
+  setPatientsOnConsultation(input: SetPatientsOnConsultationInput!): Consultation!
   setPatientsOnIllness(input: SetPatientsOnIllnessInput!): Illness!
   updateManyConsultations(input: UpdateManyConsultationsInput!): UpdateManyResponse!
   updateManyDoctors(input: UpdateManyDoctorsInput!): UpdateManyResponse!
@@ -655,12 +655,12 @@ input PatientFilter {
 }
 
 input PatientFilterConsultationFilter {
-  Hour_consultation: DateFieldComparison
   and: [PatientFilterConsultationFilter!]
-  doctor_id: StringFieldComparison
+  doctorId: StringFieldComparison
+  hour_consultation: DateFieldComparison
   id: StringFieldComparison
   or: [PatientFilterConsultationFilter!]
-  patient_id: StringFieldComparison
+  patientId: StringFieldComparison
 }
 
 input PatientFilterIllnessFilter {
@@ -781,7 +781,7 @@ input RemoveConsultationsFromPatientInput {
   relationIds: [ID!]!
 }
 
-input RemoveDoctorFromConsultationInput {
+input RemoveDoctorsFromConsultationInput {
   """The id of the record."""
   id: ID!
 
@@ -797,7 +797,7 @@ input RemoveIllnessFromPatientInput {
   relationId: ID!
 }
 
-input RemovePatientFromConsultationInput {
+input RemovePatientsFromConsultationInput {
   """The id of the record."""
   id: ID!
 
@@ -829,7 +829,7 @@ input SetConsultationsOnPatientInput {
   relationIds: [ID!]!
 }
 
-input SetDoctorOnConsultationInput {
+input SetDoctorsOnConsultationInput {
   """The id of the record."""
   id: ID!
 
@@ -845,7 +845,7 @@ input SetIllnessOnPatientInput {
   relationId: ID!
 }
 
-input SetPatientOnConsultationInput {
+input SetPatientsOnConsultationInput {
   """The id of the record."""
   id: ID!
 
@@ -891,10 +891,10 @@ input StringFieldComparison {
 }
 
 input UpdateConsultationInput {
-  Hour_consultation: DateTime
-  doctor_id: String
+  doctorId: String
+  hour_consultation: DateTime
   id: ID
-  patient_id: String
+  patientId: String
 }
 
 input UpdateDoctorInput {

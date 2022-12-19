@@ -1,13 +1,10 @@
-import { InputType, Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class CreateConsultationInput {
-  @Field(() => String)
-  doctor_id: string;
+  doctorId: string;
 
-  @Field(() => String)
-  patient_id: string;
+  patientId: string;
 
-  @Field(() => Date)
-  Hour_consultation: Date;
+  hour_consultation: Date;
 }

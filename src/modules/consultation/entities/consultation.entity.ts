@@ -8,17 +8,17 @@ export class Consultation {
   id: string;
 
   @Column()
-  doctor_id: string;
-
-  @Column()
-  patient_id: string;
-
-  @Column()
-  Hour_consultation: Date;
+  hour_consultation: Date;
 
   @ManyToOne(() => Patient)
-  PatientId: string;
+  patient: Patient;
+
+  @Column()
+  patientId: string;
 
   @ManyToOne(() => Doctor)
-  DoctorId: string;
+  doctor: Doctor;
+
+  @Column()
+  doctorId: string;
 }

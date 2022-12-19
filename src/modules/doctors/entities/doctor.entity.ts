@@ -28,6 +28,6 @@ export class Doctor {
   @CreateDateColumn()
   createdAt: Date;
 
-  @OneToMany(() => Consultation, (consultation) => consultation.DoctorId)
+  @OneToMany(() => Consultation, (consultation) => consultation.doctor)
   consultation: Consultation[];
 }
