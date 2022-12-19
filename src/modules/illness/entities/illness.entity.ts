@@ -9,6 +9,6 @@ export class Illness {
   @Column()
   name: string;
 
-  @OneToMany(() => Patient, (patients) => patients.IllnessId)
+  @OneToMany(() => Patient, (patients) => patients.illnessId)
   patients: Patient[];
 }

@@ -7,17 +7,17 @@ import { DoctorDTO } from '../../doctors/dto/doctor.dto';
 import { PatientDTO } from '../../patients/dto/patient.dto';
 
 @ObjectType('Consultation')
-@FilterableRelation('patient', () => PatientDTO)
-@FilterableRelation('doctor', () => DoctorDTO)
+@FilterableRelation('patients', () => PatientDTO)
+@FilterableRelation('doctors', () => DoctorDTO)
 export class ConsultationDTO {
   @FilterableField()
-  doctor_id: string;
+  patientId: string;
 
   @FilterableField()
-  patient_id: string;
+  doctorId: string;
 
   @FilterableField()
-  Hour_consultation: Date;
+  hour_consultation: Date;
 
   @FilterableField()
   id?: string;

@@ -31,8 +31,8 @@ export class Patient {
   createdAt: Date;
 
   @ManyToOne(() => Illness)
-  IllnessId: string;
+  illnessId: string;
 
-  @OneToMany(() => Consultation, (consultation) => consultation.PatientId)
+  @OneToMany(() => Consultation, (consultations) => consultations.patientId)
   consultation: Consultation[];
 }
