@@ -9,6 +9,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Consultation } from '../../consultation/entities/consultation.entity';
+import { hashPasswordTransform } from '../../../common/helpers/crypto';
 
 @Entity()
 export class Patient {
@@ -18,10 +19,14 @@ export class Patient {
   @Column()
   name: string;
 
-  @Column()
+  @Column({
+    unique: true,
+  })
   email: string;
 
-  @Column()
+  @Column({
+    transformer: hashPasswordTransform,
+  })
   password: string;
 
   @UpdateDateColumn()
@@ -31,7 +36,7 @@ export class Patient {
   createdAt: Date;
 
   @ManyToOne(() => Illness)
-  illnessId: string;
+  illnessId?: string;
 
   @OneToMany(() => Consultation, (consultations) => consultations.patientId)
   consultation: Consultation[];

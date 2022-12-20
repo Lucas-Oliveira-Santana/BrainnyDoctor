@@ -7,6 +7,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { hashPasswordTransform } from '../../../common/helpers/crypto';
 
 @Entity()
 export class Doctor {
@@ -16,10 +17,14 @@ export class Doctor {
   @Column()
   name: string;
 
-  @Column()
+  @Column({
+    unique: true,
+  })
   email: string;
 
-  @Column()
+  @Column({
+    transformer: hashPasswordTransform,
+  })
   password: string;
 
   @UpdateDateColumn()

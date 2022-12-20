@@ -1,16 +1,17 @@
-import { Field, InputType } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { IsEmail, IsNotEmpty } from 'class-validator';
 
 @InputType()
 export class CreatePatientInput {
-  @Field()
+  @IsNotEmpty({ message: "This field can't be empty" })
   name: string;
 
-  @Field()
+  @IsEmail()
+  @IsNotEmpty({ message: "This field can't be empty" })
   email: string;
 
-  @Field()
+  @IsNotEmpty({ message: "This field can't be empty" })
   password: string;
 
-  @Field()
   illnessId?: string;
 }
