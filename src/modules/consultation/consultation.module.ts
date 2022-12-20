@@ -4,6 +4,7 @@ import {
 } from '@nestjs-query/query-graphql';
 import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { Module } from '@nestjs/common';
+import { GqlAuthGuard } from '../../auth/auth.guard';
 import { ConsultationDTO } from './dto/consultation.dto';
 import { CreateConsultationInput } from './dto/create-consultation.input';
 import { UpdateConsultationInput } from './dto/update-consultation.input';
@@ -20,6 +21,7 @@ import { Consultation } from './entities/consultation.entity';
           UpdateDTOClass: UpdateConsultationInput,
           enableTotalCount: true,
           pagingStrategy: PagingStrategies.OFFSET,
+          guards: [GqlAuthGuard],
         },
       ],
     }),

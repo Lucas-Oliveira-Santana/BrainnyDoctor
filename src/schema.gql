@@ -26,6 +26,15 @@ input AddPatientsToIllnessInput {
   relationIds: [ID!]!
 }
 
+input AuthInput {
+  email: String!
+  password: String!
+}
+
+type AuthType {
+  token: String!
+}
+
 type Consultation {
   doctorId: String!
   doctors: Doctor!
@@ -533,6 +542,7 @@ type Mutation {
   deleteOneDoctor(input: DeleteOneDoctorInput!): DoctorDeleteResponse!
   deleteOneIllness(input: DeleteOneIllnessInput!): IllnessDeleteResponse!
   deleteOnePatient(input: DeleteOnePatientInput!): PatientDeleteResponse!
+  login(data: AuthInput!): AuthType!
   removeConsultationsFromDoctor(input: RemoveConsultationsFromDoctorInput!): Doctor!
   removeConsultationsFromPatient(input: RemoveConsultationsFromPatientInput!): Patient!
   removeDoctorsFromConsultation(input: RemoveDoctorsFromConsultationInput!): Consultation!
