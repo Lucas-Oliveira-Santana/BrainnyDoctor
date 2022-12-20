@@ -6,9 +6,11 @@ export class Illness {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column({
+    unique: true,
+  })
   name: string;
 
   @OneToMany(() => Patient, (patients) => patients.illnessId)
-  patients: Patient[];
+  patients?: Patient[];
 }

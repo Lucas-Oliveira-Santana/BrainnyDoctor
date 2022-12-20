@@ -3,7 +3,7 @@ import {
   FilterableOffsetConnection,
   FilterableRelation,
 } from '@nestjs-query/query-graphql';
-import { Field, ObjectType } from '@nestjs/graphql';
+import { ObjectType } from '@nestjs/graphql';
 import { ConsultationDTO } from '../../consultation/dto/consultation.dto';
 import { IllnessDTO } from '../../illness/dto/illness.dto';
 
@@ -25,6 +25,5 @@ export class PatientDTO {
   @FilterableField()
   createdAt: Date;
 
-  @Field()
   id: string;
 }
