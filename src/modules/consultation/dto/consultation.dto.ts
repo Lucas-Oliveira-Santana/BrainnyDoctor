@@ -1,4 +1,5 @@
 import {
+  Authorize,
   FilterableField,
   FilterableRelation,
 } from '@nestjs-query/query-graphql';
